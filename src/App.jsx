@@ -23,7 +23,7 @@ function App() {
       <Hero />
       <Skills />
       <Experience />
-      {/* <Projects /> */}
+      <Projects />
       <Footer />
     </>
   );

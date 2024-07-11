@@ -256,10 +256,17 @@ footer .footer__container .footer__socials a i:hover {
   }
 }
 header {
+  width: 100%;
+  z-index: 10;
+  transition: 0.4s;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(28, 28, 39);
 }
 header .header__container {
   width: 80%;
@@ -267,9 +274,11 @@ header .header__container {
   align-items: center;
   justify-content: space-between;
 }
-header .header__container .header__logo a img {
-  width: 100px;
-  border-radius: 50%;
+header .header__container .header__logo a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
 }
 header .header__container nav ul {
   display: flex;
@@ -310,6 +319,10 @@ header .header__container .hamburger-react {
   display: none;
 }
 
+.header-shadow {
+  box-shadow: rgba(28, 28, 39, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
 @media screen and (max-width: 1000px) {
   header {
     display: flex;
@@ -323,8 +336,85 @@ header .header__container .hamburger-react {
     align-items: center;
     justify-content: space-between;
   }
-  header .header__container .header__logo a img {
-    height: 100px;
+  header .header__container nav {
+    z-index: 1;
+    transform: translateX(-10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.4s;
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: #191924;
+    display: flex;
+    justify-content: center;
+  }
+  header .header__container nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+  header .header__container nav ul a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: rgba(242, 243, 244, 0.5843137255);
+    font-weight: 600;
+    position: relative;
+    transition: 0.4s;
+  }
+  header .header__container nav ul a:hover {
+    color: #854ce6;
+  }
+  header .header__container nav ul a:hover::after {
+    width: 100%;
+  }
+  header .header__container nav ul a::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #854ce6;
+    width: 0%;
+    height: 4px;
+    transition: 0.4s;
+  }
+  header .header__container nav ul .active-ul {
+    color: #854ce6;
+  }
+  header .header__container nav ul .active-ul::after {
+    width: 100%;
+  }
+  header .header__container .active-nav {
+    transform: translateX(0px);
+    opacity: 1;
+    visibility: visible;
+  }
+  header .header__container .hamburger-react {
+    z-index: 1;
+    display: initial;
+    color: #fff;
+  }
+}
+@media screen and (max-width: 600px) {
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+  }
+  header .header__container {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header .header__container .header__logo a {
+    font-size: 1.2rem;
   }
   header .header__container nav {
     z-index: 1;
@@ -392,7 +482,7 @@ header .header__container .hamburger-react {
 }
 #about {
   color: #fff;
-  padding: 100px 0;
+  padding: 170px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -632,7 +722,7 @@ header .header__container .hamburger-react {
   padding: 40px 0;
   display: flex;
   justify-content: center;
-  background-color: #1c1c27;
+  background-color: rgb(28, 28, 39);
   align-items: center;
   color: #f2f3f4;
   transition: 0.4s;
@@ -658,6 +748,7 @@ header .header__container .hamburger-react {
 #skills .skills__container .skills__top p {
   color: rgba(242, 243, 244, 0.5843137255);
   font-size: 18px;
+  line-height: normal;
 }
 #skills .skills__container .skills__bottom {
   width: 100%;
@@ -717,6 +808,7 @@ header .header__container .hamburger-react {
 #experience .experience__container .experience__top p {
   color: rgba(242, 243, 244, 0.5843137255);
   font-size: 18px;
+  line-height: normal;
 }
 #experience .experience__container .experience__bottom {
   display: flex;
@@ -1208,6 +1300,7 @@ header .header__container .hamburger-react {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  text-align: center;
 }
 #projects .projects__container .projects__top h1 {
   font-weight: 600;
@@ -1216,6 +1309,7 @@ header .header__container .hamburger-react {
 #projects .projects__container .projects__top p {
   color: rgba(242, 243, 244, 0.5843137255);
   font-size: 18px;
+  line-height: normal;
 }
 #projects .projects__container .projects__bottom {
   display: flex;
@@ -1226,12 +1320,15 @@ header .header__container .hamburger-react {
   display: flex;
   justify-content: center;
 }
-#projects .projects__container .projects__bottom nav ul {
+#projects .projects__container .projects__bottom nav div p {
+  display: none;
+}
+#projects .projects__container .projects__bottom nav div ul {
   border: 1px solid #854ce6;
   border-radius: 20px;
   display: flex;
 }
-#projects .projects__container .projects__bottom nav ul li {
+#projects .projects__container .projects__bottom nav div ul li {
   transition: 0.4s;
   cursor: pointer;
   border-left: 1px solid #854ce6;
@@ -1239,21 +1336,21 @@ header .header__container .hamburger-react {
   padding: 10px 20px;
   color: #854ce6;
 }
-#projects .projects__container .projects__bottom nav ul li:hover {
+#projects .projects__container .projects__bottom nav div ul li:hover {
   background-color: #854ce6;
   color: #fff;
 }
-#projects .projects__container .projects__bottom nav ul li:first-child {
+#projects .projects__container .projects__bottom nav div ul li:first-child {
   border-left: none;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
-#projects .projects__container .projects__bottom nav ul li:last-child {
+#projects .projects__container .projects__bottom nav div ul li:last-child {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-right: none;
 }
-#projects .projects__container .projects__bottom nav ul .active-tab {
+#projects .projects__container .projects__bottom nav div ul .active-tab {
   background-color: #854ce6;
   color: #fff;
 }
@@ -1286,7 +1383,7 @@ header .header__container .hamburger-react {
   overflow-y: auto;
 }
 #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-skills::-webkit-scrollbar {
-  background-color: #1c1c27;
+  background-color: rgb(28, 28, 39);
   width: 5px;
   border-radius: 20px;
 }
@@ -1336,4 +1433,205 @@ header .header__container .hamburger-react {
 }
 #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-content .projects__row-buttons a:hover {
   opacity: 0.5;
+}
+
+@media screen and (max-width: 600px) {
+  #projects {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+  }
+  #projects .projects__container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    color: #fff;
+  }
+  #projects .projects__container .projects__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  #projects .projects__container .projects__top h1 {
+    font-weight: 600;
+    font-size: 40px;
+  }
+  #projects .projects__container .projects__top p {
+    color: rgba(242, 243, 244, 0.5843137255);
+    font-size: 18px;
+  }
+  #projects .projects__container .projects__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  #projects .projects__container .projects__bottom nav {
+    width: 100%;
+    justify-content: center;
+    transition: 0.4s;
+  }
+  #projects .projects__container .projects__bottom nav div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    transition: 0.4s;
+  }
+  #projects .projects__container .projects__bottom nav div p {
+    position: relative;
+    width: 100%;
+    transition: 0.4s;
+    cursor: pointer;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    border: 1px solid #854ce6;
+    background-color: #231e36;
+  }
+  #projects .projects__container .projects__bottom nav div p i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(0);
+    transition: 0.4s;
+  }
+  #projects .projects__container .projects__bottom nav div p .arrow-up {
+    transform: translateY(-50%) rotate(180deg);
+  }
+  #projects .projects__container .projects__bottom nav div ul {
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: 0.4s;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+  }
+  #projects .projects__container .projects__bottom nav div ul li {
+    width: 100%;
+    transition: 0.4s;
+    cursor: pointer;
+    border: 1px solid #854ce6 !important;
+    padding: 10px 10px;
+    border-radius: 20px;
+    color: #854ce6;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+  #projects .projects__container .projects__bottom nav div ul li:hover {
+    background-color: transparent;
+    color: #854ce6;
+  }
+  #projects .projects__container .projects__bottom nav div ul .active-tab {
+    background-color: transparent;
+    color: #854ce6;
+  }
+  #projects .projects__container .projects__bottom nav div .ul-active {
+    height: 166px;
+    opacity: 1;
+    visibility: visible;
+  }
+  #projects .projects__container .projects__bottom .projects__list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  #projects .projects__container .projects__bottom .projects__list .projects__row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    padding: 15px 10px;
+    border-radius: 10px;
+    background-color: #171721;
+    box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.4s;
+  }
+  #projects .projects__container .projects__bottom .projects__list .projects__row img {
+    box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    width: 100%;
+  }
+  #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    height: 50px;
+    overflow-y: auto;
+  }
+  #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-skills::-webkit-scrollbar {
+    background-color: rgb(28, 28, 39);
+    width: 5px;
+    border-radius: 20px;
+  }
+  #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-skills::-webkit-scrollbar-thumb {
+    background-color: #854ce6;
+    border-radius: 20px;
+    width: 5px;
+  }
+  #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-skills li {
+    padding: 5px 10px;
+    background-color: #231e36;
+    color: #854ce6;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-content h1 {
+    color: rgba(242, 243, 244, 0.5843137255);
+    font-weight: 600;
+    font-size: 20px;
+  }
+  #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-content h3 {
+    font-size: 12px;
+    color: #626970;
+  }
+  #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-content .projects__row-buttons {
+    display: flex;
+    padding-top: 10px;
+    justify-content: center;
+    gap: 20px;
+  }
+  #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-content .projects__row-buttons a {
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 20px;
+    transition: 0.4s;
+    background-color: #854ce6;
+    color: #fff;
+  }
+  #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-content .projects__row-buttons a:hover {
+    opacity: 0.5;
+  }
 }

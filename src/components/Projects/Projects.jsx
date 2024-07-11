@@ -6,6 +6,7 @@ function Projects() {
   const tabs = ["All", "E-Commerce", "Web App", "Landing Page"];
   const [activeTab, setActiveTab] = useState("All");
   const [updatedProjects, setUpdatedProjects] = useState(projects);
+  const [responsiveTab, setResponsiveTab] = useState(true);
 
   const filterCategories = (category) => {
     const filteredProjects = projects.filter(
@@ -25,25 +26,36 @@ function Projects() {
         </div>
         <div className="projects__bottom">
           <nav>
-            <ul>
-              {tabs.map((tab, index) => {
-                return (
-                  <li
-                    onClick={() => {
-                      setActiveTab(tab);
-                      filterCategories(tab);
-                      if (tab === "All") {
-                        setUpdatedProjects(projects);
-                      }
-                    }}
-                    className={tab === activeTab ? "active-tab" : ""}
-                    key={index}
-                  >
-                    {tab}
-                  </li>
-                );
-              })}
-            </ul>
+            <div>
+              <p onClick={() => setResponsiveTab(!responsiveTab)}>
+                {activeTab}{" "}
+                <i
+                  class={`ri-arrow-down-line ${
+                    responsiveTab ? "arrow-up" : ""
+                  }`}
+                ></i>
+              </p>
+              <ul className={responsiveTab ? "ul-active" : ""}>
+                {tabs.map((tab, index) => {
+                  return (
+                    <li
+                      onClick={() => {
+                        setActiveTab(tab);
+                        filterCategories(tab);
+                        setResponsiveTab(false);
+                        if (tab === "All") {
+                          setUpdatedProjects(projects);
+                        }
+                      }}
+                      className={tab === activeTab ? "active-tab" : ""}
+                      key={index}
+                    >
+                      {tab}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </nav>
           <div className="projects__list">
             {updatedProjects.map((project, index) => {
