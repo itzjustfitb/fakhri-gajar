@@ -95,7 +95,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 5px;
-            height: 50px;
+            height: 55px;
             overflow-y: auto;
             &::-webkit-scrollbar {
               background-color: $background1;
@@ -112,6 +112,7 @@
               background-color: $primary-overlay;
               color: $primary1;
               font-size: 0.8rem;
+              height: fit-content;
               border-radius: 20px;
               display: flex;
               justify-content: center;
@@ -237,7 +238,7 @@
               border-radius: 0px;
               display: flex;
               flex-direction: column;
-              gap: 5px;
+              gap: 10px;
               width: 100%;
               li {
                 width: 100%;
@@ -264,7 +265,7 @@
               }
             }
             .ul-active {
-              height: 166px;
+              height: 185px;
               opacity: 1;
               visibility: visible;
             }
