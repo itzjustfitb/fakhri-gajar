@@ -566,7 +566,7 @@ header .header__container .hamburger-react {
 @media screen and (max-width: 1000px) {
   #about {
     color: #fff;
-    padding: 70px 0;
+    padding: 170px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -642,7 +642,7 @@ header .header__container .hamburger-react {
 @media screen and (max-width: 600px) {
   #about {
     color: #fff;
-    padding: 70px 0;
+    padding: 170px 0;
     display: flex;
     justify-content: center;
     align-items: center;
