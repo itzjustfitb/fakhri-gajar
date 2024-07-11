@@ -6,7 +6,7 @@ function Projects() {
   const tabs = ["All", "E-Commerce", "Web App", "Landing Page"];
   const [activeTab, setActiveTab] = useState("All");
   const [updatedProjects, setUpdatedProjects] = useState(projects);
-  const [responsiveTab, setResponsiveTab] = useState(true);
+  const [responsiveTab, setResponsiveTab] = useState(false);
 
   const filterCategories = (category) => {
     const filteredProjects = projects.filter(
@@ -28,9 +28,9 @@ function Projects() {
           <nav>
             <div>
               <p onClick={() => setResponsiveTab(!responsiveTab)}>
-                {activeTab}{" "}
+                {activeTab}
                 <i
-                  class={`ri-arrow-down-line ${
+                  className={`ri-arrow-down-line ${
                     responsiveTab ? "arrow-up" : ""
                   }`}
                 ></i>

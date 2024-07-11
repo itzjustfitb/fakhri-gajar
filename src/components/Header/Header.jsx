@@ -16,7 +16,6 @@ function Header() {
     setScrollInt(scrollY);
   });
 
-  console.log(isOpen);
   return (
     <header className={scrollInt > 120 ? "header-shadow" : ""}>
       <div className="header__container">
