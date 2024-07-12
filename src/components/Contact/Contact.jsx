@@ -2,14 +2,38 @@ import React, { useRef, useState } from "react";
 import { contactDetail } from "../../data/constants";
 import emailjs from "@emailjs/browser";
 import { TextField } from "@mui/material";
+import { toast } from "react-toastify";
 
 function Contact() {
-  const [activeLabel, setActiveLabel] = useState("");
+  const [inputs, setInputs] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
   const form = useRef();
   const sendMail = (e) => {
     e.preventDefault();
-    emailjs.sendForm("service_emux3fs", "template_o54layb", form.current, {
-      publicKey: "bzj7XofiRWUJhFwDn",
+    if (
+      inputs.phone === "" &&
+      inputs.name === "" &&
+      inputs.message === "" &&
+      inputs.email === ""
+    ) {
+      toast.warning("Please fill all the inputs");
+      return inputs;
+    }
+    emailjs
+      .sendForm("service_emux3fs", "template_o54layb", form.current, {
+        publicKey: "bzj7XofiRWUJhFwDn",
+      })
+      .then(() => toast.success("Message sent succesfully"))
+      .catch(() => toast.error("There is an error!"));
+    setInputs({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
     });
   };
 
@@ -48,30 +72,55 @@ function Contact() {
             <span className="circle two"></span>
 
             <form ref={form} onSubmit={sendMail} autoComplete="off">
-              {contactDetail.fields.map((field, index) =>
-                field.element !== "textarea" ? (
-                  <div key={index} className={`input-container`}>
-                    <TextField
-                      id="outlined-basic"
-                      label={field.label}
-                      variant="outlined"
-                      className={
-                        field.element === "textarea" ? "contact-textarea" : ""
-                      }
-                    />
-                  </div>
-                ) : (
-                  <div key={index} className={`input-container`}>
-                    <TextField
-                      id="outlined-multiline-flexible"
-                      label={field.label}
-                      multiline
-                      minRows={4}
-                      maxRows={4}
-                    />
-                  </div>
-                )
-              )}
+              <div className={`input-container`}>
+                <TextField
+                  id="outlined-basic"
+                  label="Your Name"
+                  value={inputs.name}
+                  type="text"
+                  onChange={(e) =>
+                    setInputs({ ...inputs, name: e.target.value })
+                  }
+                  variant="outlined"
+                />
+              </div>
+              <div className={`input-container`}>
+                <TextField
+                  id="outlined-basic"
+                  label="Email"
+                  value={inputs.email}
+                  type="email"
+                  onChange={(e) =>
+                    setInputs({ ...inputs, email: e.target.value })
+                  }
+                  variant="outlined"
+                />
+              </div>
+              <div className={`input-container`}>
+                <TextField
+                  id="outlined-basic"
+                  label="Phone"
+                  value={inputs.phone}
+                  type="number"
+                  onChange={(e) =>
+                    setInputs({ ...inputs, phone: e.target.value })
+                  }
+                  variant="outlined"
+                />
+              </div>
+              <div className={`input-container`}>
+                <TextField
+                  id="outlined-multiline-flexible"
+                  label="Message"
+                  value={inputs.message}
+                  onChange={(e) =>
+                    setInputs({ ...inputs, message: e.target.value })
+                  }
+                  multiline
+                  minRows={4}
+                  maxRows={4}
+                />
+              </div>
               <input type="submit" value="Send" className="btn" />
             </form>
           </div>

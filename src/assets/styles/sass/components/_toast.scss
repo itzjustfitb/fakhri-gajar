@@ -1,0 +1,14 @@
+.Toastify {
+  .Toastify__toast-container {
+    .Toastify__toast-theme--dark {
+      background-color: $background3;
+      .Toastify__toast-body {
+        div {
+          &:last-child {
+            font-family: Poppins;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import "./assets/styles/main.css";
 import "remixicon/fonts/remixicon.css";
+import "react-toastify/dist/ReactToastify.css";
 import Experience from "./components/Experience/Experience";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -11,6 +12,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import Loader from "./components/Loader/Loader";
 import Contact from "./components/Contact/Contact";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,6 +38,19 @@ function App() {
   return (
     <>
       {isLoading ? <Loader /> : ""}
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition:Bounce
+      />
       <Header />
       <Hero />
       <Skills />
