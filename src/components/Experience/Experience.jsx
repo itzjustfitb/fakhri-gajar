@@ -3,7 +3,7 @@ import { experiences } from "../../data/constants";
 import ExperienceCard from "./ExperienceCard";
 
 function Experience() {
-  const [readMoreActive, setReadMoreActive] = useState(false);
+  const [readMoreActive, setReadMoreActive] = useState();
 
   return (
     <section id="experience">
@@ -20,6 +20,7 @@ function Experience() {
             return (
               <ExperienceCard
                 key={index}
+                id={index}
                 experienceList={experience}
                 readMoreActive={readMoreActive}
                 setReadMoreActive={setReadMoreActive}

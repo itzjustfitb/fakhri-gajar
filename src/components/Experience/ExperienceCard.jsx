@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
-function ExperienceCard({ experienceList, readMoreActive, setReadMoreActive }) {
+function ExperienceCard({
+  id,
+  experienceList,
+  readMoreActive,
+  setReadMoreActive,
+}) {
+  const [activeCard, setActiveCard] = useState(1);
+
   let firstPartOfDescription = "";
-
+  let firstPart = null;
   const settingFirstPartOfText = (text) => {
+    let result;
     const words = text.split(" ");
-    const firstPart = words.slice(0, 30);
-    const result = firstPart.join(" ");
+    result = text;
+    if (words.length > 30) {
+      firstPart = words.slice(0, 30);
+      result = firstPart.join(" ");
+    }
     firstPartOfDescription = result;
   };
-
   settingFirstPartOfText(experienceList.description);
+
   return (
     <div className="experience__card">
       <div className="experience__card-left">
@@ -33,12 +44,20 @@ function ExperienceCard({ experienceList, readMoreActive, setReadMoreActive }) {
             }`}
           >
             <p>
-              {readMoreActive
+              {readMoreActive === id
                 ? experienceList.description
                 : firstPartOfDescription}
-              <span onClick={() => setReadMoreActive(!readMoreActive)}>
-                {readMoreActive ? "show less..." : "read more..."}
-              </span>
+              {firstPart !== null ? (
+                <span
+                  onClick={() => {
+                    setReadMoreActive(id);
+                  }}
+                >
+                  {readMoreActive === id ? "show less..." : "read more..."}
+                </span>
+              ) : (
+                ""
+              )}
             </p>
           </div>
           <div className="experience__card-skills">

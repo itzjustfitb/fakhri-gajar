@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Loader from "./components/Loader/Loader";
+import Contact from "./components/Contact/Contact";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -40,6 +41,7 @@ function App() {
       <Skills />
       <Experience />
       <Projects />
+      <Contact />
       <Footer />
     </>
   );

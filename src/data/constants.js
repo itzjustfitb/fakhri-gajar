@@ -50,8 +50,8 @@ export const navigations = [
     value: "#projects",
   },
   {
-    label: "Education",
-    value: "#education",
+    label: "Contact me",
+    value: "#contact",
   },
 ];
 
@@ -131,7 +131,7 @@ export const skills = [
 export const experiences = [
   {
     image:
-      "https://media.licdn.com/dms/image/D4E0BAQEdZFktxzEPKA/company-logo_200_200/0/1690002468126/birkonullu_logo?e=1723075200&v=beta&t=NJjThSiUMLRoj17rcwsX8UgVHhyeiQaeNqG7EC5DQjo",
+      "https://firebasestorage.googleapis.com/v0/b/fakhri-gajar.appspot.com/o/Companies%2Fcompany-1.jpg?alt=media&token=a1b936e0-c1c0-483e-be30-afda217d801b",
     position: "Hackaton • Frontend Developer",
     company: `"Bir Könüllü" Tələbələrin Əməkdaşlığı Təşkilatı`,
     date: "Apr 2024 - Apr 2024",
@@ -148,19 +148,40 @@ export const experiences = [
   },
   {
     image:
-      "https://media.licdn.com/dms/image/D4E0BAQEdZFktxzEPKA/company-logo_200_200/0/1690002468126/birkonullu_logo?e=1723075200&v=beta&t=NJjThSiUMLRoj17rcwsX8UgVHhyeiQaeNqG7EC5DQjo",
-    position: "Hackaton • Frontend Developer",
-    company: `"Bir Könüllü" Tələbələrin Əməkdaşlığı Təşkilatı`,
-    date: "Apr 2024 - Apr 2024",
-    description: `I participated in the Azerbaijan 2030 and Sustainable Development National Student Competition on April 26-28. In the direction of "increasing the use of renewable energy sources", as a "Tərəqqi" team, we thought of ideas that we could integrate with our field, we all worked hard and researched. We presented the project called "PiezoGen". At the same time, we had fun, learned and made friends with each other. We may not have won, but we will never forget the experience and good memories`,
+      "https://firebasestorage.googleapis.com/v0/b/fakhri-gajar.appspot.com/o/Companies%2Fcompany-2.jpg?alt=media&token=1c1247ba-49ef-40ee-b92f-607af4f27799",
+    position: "Intern • Frontend Developer",
+    company: "JET Academy",
+    date: "May 2024 - Present",
+    description: `I am currently participating in JET Academy's Frontend Developer internship program. Here, I am increasing my knowledge and experience by working on interesting projects.`,
     skills: [
-      "Teamwork",
       "Front-End Development",
       "JavaScript",
       "Problem Solving",
       "Analytical Skills",
       "React.js",
-      "Microsoft PowerPoint",
+      "HTML",
+      "CSS",
+      "SCSS",
+    ],
+  },
+  {
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/fakhri-gajar.appspot.com/o/Companies%2Fcompany-3.jpg?alt=media&token=51ed8beb-9446-4c19-847a-834a82433558",
+    position: "Startup • Frontend Developer",
+    company: "NEXT US",
+    date: "May 2024 - Present",
+    description: `I am currently working as a Frontend Developer at a startup called NEXT US. Here we work as a team and try to come up with interesting projects.`,
+    skills: [
+      "Front-End Development",
+      "JavaScript",
+      "Problem Solving",
+      "Analytical Skills",
+      "React.js",
+      "HTML",
+      "CSS",
+      "SCSS",
+      "Axios",
+      "REST API",
     ],
   },
 ];
@@ -284,3 +305,66 @@ export const projects = [
     ],
   },
 ];
+
+export const contactDetail = {
+  description:
+    "Want to get in touch? I'd love to hear from you. Feel free to use the contact form ",
+  infos: [
+    {
+      icon: "ri-map-pin-line",
+      label: "Baku, Azerbaijan",
+    },
+    {
+      icon: "ri-mail-line",
+      label: "fakhrigajar@gmail.com",
+    },
+    {
+      icon: "ri-phone-fill",
+      label: "+994 (070) 382 18 11",
+    },
+  ],
+  socials: [
+    {
+      value: "https://www.facebook.com/profile.php?id=100088924454057",
+      icon: "ri-facebook-fill",
+    },
+    {
+      value: "https://github.com/itzjustfitb",
+      icon: "ri-github-line",
+    },
+    {
+      value: "https://www.instagram.com/faakhrii03/",
+      icon: "ri-instagram-line",
+    },
+    {
+      value: "https://www.linkedin.com/in/fakhrigajar/",
+      icon: "ri-linkedin-fill",
+    },
+  ],
+  fields: [
+    {
+      element: "input",
+      type: "text",
+      label: "Your Name",
+      name: "name",
+    },
+    {
+      element: "input",
+      type: "email",
+      label: "Email",
+      name: "email",
+    },
+    {
+      element: "input",
+      type: "number",
+      label: "Phone",
+      name: "phone",
+    },
+    {
+      element: "textarea",
+      type: "text",
+      label: "Message",
+      name: "message",
+    },
+  ],
+};
