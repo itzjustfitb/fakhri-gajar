@@ -6,11 +6,26 @@ import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
 import Projects from "./components/Projects/Projects";
 import Skills from "./components/Skills/Skills";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Loader from "./components/Loader/Loader";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setIsLoading(true);
+    document.body.style.overflow = "hidden";
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      document.body.style.overflow = "initial";
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   useEffect(() => {
     Aos.init({
       duration: 200,
@@ -19,6 +34,7 @@ function App() {
 
   return (
     <>
+      {isLoading ? <Loader /> : ""}
       <Header />
       <Hero />
       <Skills />

@@ -3,6 +3,10 @@ body {
   background-color: #191924;
 }
 
+section {
+  padding-top: 150px !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -142,6 +146,158 @@ body {
   font-family: "Poppins";
 }
 
+.loader {
+  width: 100%;
+  height: 100%;
+  background-color: #1c1c27;
+  z-index: 11;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.pl {
+  width: 11em;
+  height: 10em;
+}
+
+.pl__ring,
+.pl__worm1,
+.pl__worm2,
+.pl__worm3 {
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+.pl__ring {
+  stroke: hsla(223, 10%, 10%, 0.1);
+  transition: stroke 0.3s;
+}
+
+.pl__worm1 {
+  animation-name: worm1;
+}
+
+.pl__worm2 {
+  animation-name: worm2;
+  transform-origin: 32px 88px;
+}
+
+.pl__worm3 {
+  animation-name: worm3;
+  transform-origin: 144px 88px;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: hsl(223, 10%, 10%);
+    --fg: hsl(223, 10%, 90%);
+  }
+  .pl__ring {
+    stroke: #232332;
+  }
+}
+/* Animations */
+@keyframes worm1 {
+  from {
+    animation-timing-function: ease-out;
+    stroke-dashoffset: 43.98;
+  }
+  12.5% {
+    animation-timing-function: ease-in-out;
+    stroke-dashoffset: -131.95;
+  }
+  25% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: 0;
+  }
+  37.5%, 50% {
+    animation-timing-function: ease-out;
+    stroke-dashoffset: -175.93;
+  }
+  62.5% {
+    animation-timing-function: ease-in-out;
+    stroke-dashoffset: 0;
+  }
+  75% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -131.95;
+  }
+  87.5%, to {
+    stroke-dashoffset: 43.98;
+  }
+}
+@keyframes worm2 {
+  from, 35.5% {
+    animation-timing-function: linear;
+    stroke-dasharray: 0 40 0 44;
+    visibility: hidden;
+    transform: translate(0, 0) rotate(0);
+  }
+  37.5% {
+    animation-timing-function: ease-out;
+    stroke-dasharray: 0 40 44 0;
+    visibility: visible;
+    transform: translate(0, 0) rotate(0);
+  }
+  47.5% {
+    animation-timing-function: ease-in;
+    stroke-dasharray: 0 4 40 40;
+    visibility: visible;
+    transform: translate(0, -80px) rotate(360deg);
+  }
+  50% {
+    animation-timing-function: linear;
+    stroke-dasharray: 0 4 40 40;
+    visibility: visible;
+    transform: translate(0, -36px) rotate(360deg);
+  }
+  52.5%, to {
+    stroke-dasharray: 0 42 0 42;
+    visibility: hidden;
+    transform: translate(0, 12px) rotate(360deg);
+  }
+}
+@keyframes worm3 {
+  from {
+    animation-timing-function: linear;
+    stroke-dasharray: 0 4 40 40;
+    visibility: visible;
+    transform: translate(0, -36px) rotate(0);
+  }
+  2.5% {
+    animation-timing-function: linear;
+    stroke-dasharray: 0 42 0 42;
+    visibility: hidden;
+    transform: translate(0, 12px) rotate(0);
+  }
+  85.5% {
+    animation-timing-function: linear;
+    stroke-dasharray: 0 40 0 44;
+    visibility: hidden;
+    transform: translate(0, 0) rotate(0);
+  }
+  87.5% {
+    animation-timing-function: ease-out;
+    stroke-dasharray: 0 40 44 0;
+    visibility: visible;
+    transform: translate(0, 0) rotate(0);
+  }
+  97.5% {
+    animation-timing-function: ease-in;
+    stroke-dasharray: 0 4 40 40;
+    visibility: visible;
+    transform: translate(0, -80px) rotate(-360deg);
+  }
+  to {
+    stroke-dasharray: 0 4 40 40;
+    visibility: visible;
+    transform: translate(0, -36px) rotate(-360deg);
+  }
+}
 footer {
   padding: 40px 0;
   display: flex;
@@ -266,7 +422,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgb(28, 28, 39);
+  background-color: #1c1c27;
 }
 header .header__container {
   width: 80%;
@@ -482,7 +638,7 @@ header .header__container .hamburger-react {
 }
 #about {
   color: #fff;
-  padding: 170px 0;
+  padding: 70px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -566,7 +722,7 @@ header .header__container .hamburger-react {
 @media screen and (max-width: 1000px) {
   #about {
     color: #fff;
-    padding: 170px 0;
+    padding: 70px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -642,7 +798,7 @@ header .header__container .hamburger-react {
 @media screen and (max-width: 600px) {
   #about {
     color: #fff;
-    padding: 170px 0;
+    padding: 70px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -722,7 +878,7 @@ header .header__container .hamburger-react {
   padding: 40px 0;
   display: flex;
   justify-content: center;
-  background-color: rgb(28, 28, 39);
+  background-color: #1c1c27;
   align-items: center;
   color: #f2f3f4;
   transition: 0.4s;
@@ -1383,7 +1539,7 @@ header .header__container .hamburger-react {
   overflow-y: auto;
 }
 #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-skills::-webkit-scrollbar {
-  background-color: rgb(28, 28, 39);
+  background-color: #1c1c27;
   width: 5px;
   border-radius: 20px;
 }
@@ -1585,7 +1741,7 @@ header .header__container .hamburger-react {
     overflow-y: auto;
   }
   #projects .projects__container .projects__bottom .projects__list .projects__row .projects__row-skills::-webkit-scrollbar {
-    background-color: rgb(28, 28, 39);
+    background-color: #1c1c27;
     width: 5px;
     border-radius: 20px;
   }
