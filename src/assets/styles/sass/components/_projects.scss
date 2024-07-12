@@ -253,6 +253,8 @@
                 justify-content: center;
                 align-items: center;
                 gap: 10px;
+                background-color: rebeccapurple;
+                color: $white;
                 text-align: center;
                 &:hover {
                   background-color: transparent;
@@ -261,11 +263,12 @@
               }
               .active-tab {
                 background-color: transparent;
+                display: none;
                 color: $primary1;
               }
             }
             .ul-active {
-              height: 185px;
+              height: 145px;
               opacity: 1;
               visibility: visible;
             }

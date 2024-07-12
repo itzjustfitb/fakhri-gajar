@@ -184,22 +184,24 @@
           gap: initial;
           font-size: 2rem;
           font-weight: 700;
+          width: 100%;
           line-height: 1.2;
           color: $white;
         }
         div {
-          display: flex;
+          display: none;
           flex-direction: column;
           gap: 0px;
           font-weight: 600;
-          font-size: 1.4rem;
+          font-size: 2rem;
           span {
             color: $primary1;
           }
         }
         p {
           padding-top: 10px;
-          width: 75%;
+          width: 100%;
+          font-size: 1rem;
           color: $text;
         }
         a {

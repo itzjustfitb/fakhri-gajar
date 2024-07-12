@@ -44,13 +44,18 @@ function ExperienceCard({
             }`}
           >
             <p>
-              {readMoreActive === id
+              {readMoreActive.index === id && readMoreActive.boolean
                 ? experienceList.description
                 : firstPartOfDescription}
               {firstPart !== null ? (
                 <span
                   onClick={() => {
-                    setReadMoreActive(id);
+                    setActiveCard(!activeCard);
+                    setReadMoreActive({
+                      ...readMoreActive,
+                      index: id,
+                      boolean: activeCard,
+                    });
                   }}
                 >
                   {readMoreActive === id ? "show less..." : "read more..."}

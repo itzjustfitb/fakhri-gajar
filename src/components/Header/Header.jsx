@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { DefaultBtn } from "../components.style";
 import siteLogo from "../../assets/images/site-logo.png";
 import { Sling as Hamburger } from "hamburger-react";
 import { navigations } from "../../data/constants";
 
 function Header() {
-  const [activeNav, setActiveNav] = useState("");
+  const [activeSection, setActiveSection] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "initial";
@@ -15,6 +15,28 @@ function Header() {
   window.addEventListener("scroll", () => {
     setScrollInt(scrollY);
   });
+
+  const handleScroll = () => {
+    const sections = document.querySelectorAll("section");
+    let currentSection = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
+        currentSection = section.getAttribute("id");
+      }
+    });
+
+    setActiveSection(currentSection);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [activeSection]);
 
   return (
     <header className={scrollInt > 120 ? "header-shadow" : ""}>
@@ -26,16 +48,12 @@ function Header() {
           <ul>
             {navigations.map((navigation, index) => {
               return (
-                <li
-                  onClick={() => {
-                    setActiveNav(navigation.label);
-                    setIsOpen(false);
-                  }}
-                  key={index}
-                >
+                <li onClick={() => setIsOpen(false)} key={index}>
                   <a
                     className={
-                      activeNav === navigation.label ? "active-ul" : ""
+                      navigation.value === "#" + activeSection
+                        ? "active-ul"
+                        : ""
                     }
                     href={navigation.value}
                   >

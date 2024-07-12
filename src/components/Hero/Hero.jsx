@@ -10,8 +10,7 @@ function Hero() {
       <div className="hero__container">
         <div className="hero__left">
           <h1>
-            Hi, I am
-            <span>{bio.name}</span>
+            Hi, I am <span>{bio.name}</span>
           </h1>
           <div>
             I am a

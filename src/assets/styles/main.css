@@ -837,22 +837,24 @@ header .header__container .hamburger-react {
     gap: initial;
     font-size: 2rem;
     font-weight: 700;
+    width: 100%;
     line-height: 1.2;
     color: #fff;
   }
   #about .hero__container .hero__left div {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 0px;
     font-weight: 600;
-    font-size: 1.4rem;
+    font-size: 2rem;
   }
   #about .hero__container .hero__left div span {
     color: #854ce6;
   }
   #about .hero__container .hero__left p {
     padding-top: 10px;
-    width: 75%;
+    width: 100%;
+    font-size: 1rem;
     color: rgba(242, 243, 244, 0.5843137255);
   }
   #about .hero__container .hero__left a {
@@ -1248,7 +1250,7 @@ header .header__container .hamburger-react {
     transition: 0.4s;
   }
   #experience .experience__container .experience__bottom .experience__card .experience__card-right .experience__card-bottom .experience__card-content p span:hover {
-    opacity: 0.7;
+    opacity: 1;
   }
   #experience .experience__container .experience__bottom .experience__card .experience__card-right .experience__card-bottom .experience__card-skills {
     display: flex;
@@ -1415,7 +1417,7 @@ header .header__container .hamburger-react {
     transition: 0.4s;
   }
   #experience .experience__container .experience__bottom .experience__card .experience__card-right .experience__card-bottom .experience__card-content p span:hover {
-    opacity: 0.7;
+    opacity: 1;
   }
   #experience .experience__container .experience__bottom .experience__card .experience__card-right .experience__card-bottom .experience__card-skills {
     display: flex;
@@ -1706,6 +1708,8 @@ header .header__container .hamburger-react {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    background-color: rebeccapurple;
+    color: #fff;
     text-align: center;
   }
   #projects .projects__container .projects__bottom nav div ul li:hover {
@@ -1714,10 +1718,11 @@ header .header__container .hamburger-react {
   }
   #projects .projects__container .projects__bottom nav div ul .active-tab {
     background-color: transparent;
+    display: none;
     color: #854ce6;
   }
   #projects .projects__container .projects__bottom nav div .ul-active {
-    height: 185px;
+    height: 145px;
     opacity: 1;
     visibility: visible;
   }
@@ -1922,6 +1927,11 @@ header .header__container .hamburger-react {
   background-color: #fff;
   border-radius: 20px;
 }
+#contact .form .contact-form .input-container input::-webkit-outer-spin-button,
+#contact .form .contact-form .input-container input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
 #contact .form .contact-form .btn {
   padding: 0.6rem 1.3rem;
   background-color: #fff;
@@ -1996,6 +2006,9 @@ header .header__container .hamburger-react {
   line-height: 35px;
   margin-right: 0.5rem;
   transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #contact .form .contact-info .social-media .social-icons a:hover {
   transform: scale(1.05);
