@@ -64,7 +64,7 @@ function Header() {
             })}
           </ul>
         </nav>
-        <Hamburger toggled={isOpen} toggle={setIsOpen} />
+        <Hamburger toggled={isOpen} size={25} toggle={setIsOpen} />
       </div>
     </header>
   );

@@ -58,7 +58,9 @@ function ExperienceCard({
                     });
                   }}
                 >
-                  {readMoreActive === id ? "show less..." : "read more..."}
+                  {readMoreActive.index === id && readMoreActive.boolean
+                    ? "show less..."
+                    : "read more..."}
                 </span>
               ) : (
                 ""
