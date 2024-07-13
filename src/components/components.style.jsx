@@ -7,8 +7,7 @@ export const DefaultBtn = styled.button({
   fontSize: "20px",
   fontWeight: 600,
   fontFamily: "Poppins",
-  background:
-    "linear-gradient(225deg,hsla(271,100%,50%,1) 0%,hsla(294,100%,50%,1) 100%)",
+  background: "linear-gradient(45deg, #854ce6, #231e36)",
   color: "#fff",
   border: "none",
   maxWidth: 300,
