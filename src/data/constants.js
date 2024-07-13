@@ -6,7 +6,7 @@ export const bio = {
   resume:
     "https://drive.google.com/file/d/1tbz-xai1sCEdLsO_epXlci5ArPCuetmW/view?usp=sharing",
   image:
-    "https://firebasestorage.googleapis.com/v0/b/fakhri-gajar.appspot.com/o/IMG_3811.PNG?alt=media&token=9f92e5ca-1779-4ed2-819f-a5694e236578",
+    "https://firebasestorage.googleapis.com/v0/b/fakhri-gajar.appspot.com/o/hero-image.jpg?alt=media&token=64219379-0685-40e9-8717-2eb1aa67408e",
 };
 
 export const socials = [
