@@ -1538,6 +1538,9 @@ header .header__container .hamburger-react {
   box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
   transition: 0.4s;
 }
+#projects .projects__container .projects__bottom .projects__list .projects__row:hover {
+  transform: scale(0.95);
+}
 #projects .projects__container .projects__bottom .projects__list .projects__row img {
   box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
