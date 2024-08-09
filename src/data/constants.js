@@ -4,7 +4,7 @@ export const bio = {
     "Frontend Developer, with knowledge in web development and design, I offer the best projects resulting in quality work",
   roles: ["Frontend Developer", "Coder", "Programmer"],
   resume:
-    "https://drive.google.com/file/d/1tbz-xai1sCEdLsO_epXlci5ArPCuetmW/view?usp=sharing",
+    "https://drive.google.com/file/d/1ZhKRlUz4ePv-yaT8EBvDUH9kWXIwoGHn/view?usp=sharing",
   image:
     "https://firebasestorage.googleapis.com/v0/b/fakhri-gajar.appspot.com/o/hero-image.jpg?alt=media&token=64219379-0685-40e9-8717-2eb1aa67408e",
 };
